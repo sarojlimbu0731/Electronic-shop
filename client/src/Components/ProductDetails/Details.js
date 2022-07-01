@@ -44,7 +44,7 @@ const Details = () => {
         <div>{product.name}</div>
         <div>{product.price}</div>
         <div><AiOutlineMinus onClick={handledecrement}/><strong>{quantity}</strong><AiOutlinePlus onClick={handleincrement}/></div>
-        <button>{stock?"ADD to card":"out of stock"}</button>
+        <button onClick={()=>{dispatch({type:"ADD_TO_CART",payload:{product,quantity}})}}>{stock?"ADD to card":"out of stock"}</button>
       </div>
     </div>
   );
