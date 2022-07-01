@@ -54,3 +54,29 @@ border-radius: 100%;
   background-color: black;
   color: white;
 }
+
+.home{
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20%;
+  justify-content: space-evenly;  
+}
+
+.product-item{
+  padding: 1rem;
+  margin: 1rem 0.5rem;
+  height: 10rem;
+  width: 8rem;
+  background-color: rgb(173, 182, 166);
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1rem;
+  box-shadow: 0 5px 20px 2px rgba(0,0,0,0.2);
+}
+
+.product-details{
+  display: inline-block;
+  height: 20rem;
+  width: 16rem;
+}

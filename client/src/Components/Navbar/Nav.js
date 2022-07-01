@@ -8,7 +8,9 @@ const Nav = () => {
         <div className='container'>
             <div className='nav_container'>
                 <div className='nav_left'>
-                    <h2>Electronic Shop</h2>
+                <Link to ="/"> <h2>Electronic Shop</h2></Link>
+
+                   
                 </div>
                 <div className='nav-right'>
                     <Link to ="/cart"><AiOutlineShoppingCart className='cart'/><strong>4</strong></Link>
