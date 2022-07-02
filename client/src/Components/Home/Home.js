@@ -16,7 +16,7 @@ const Home = () => {
   
 
 
-  const handleClick=(e)=>{
+  const handleClick=async(e)=>{
     dispatch({type:"PRODUCT",payload:e.target.name})
    
       dispatch({type: "ADD_TO_CART",payload: { product,quantity}})

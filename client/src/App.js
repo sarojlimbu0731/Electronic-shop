@@ -7,6 +7,7 @@ import Details from './Components/ProductDetails/Details';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from "axios";
+import Checkout from './Components/Checkout/Checkout';
 
 function App() {
   const dispatch = useDispatch()
@@ -40,8 +41,8 @@ function App() {
           <Routes>
         
           <Route path='/' exact element={<Home/>} />
-          <Route path="/cart" exact element={<Cart/>} /> 
-          <Route path="/details/:id" exact element={<Details/>} />
+          <Route path="/checkout" exact element={<Checkout/>} /> 
+          {/* <Route path="/details/:id" exact element={<Details/>} /> */}
           </Routes>
     </BrowserRouter>
 
