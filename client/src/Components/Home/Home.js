@@ -10,22 +10,20 @@ const Home = () => {
 
   const [modalOpen,setModalOpen]= useState(false)
   const [quantity, setQuantity]= useState(1)
-  const dispatch= useDispatch()
   const {products}= useSelector(state=>state.productReducer)
-  const { product} = useSelector((state) => state.productReducer);
-  
+  const dispatch= useDispatch()
 
+  // const [product, setData] = useState([]);
 
-  const handleClick=async(e)=>{
-    dispatch({type:"PRODUCT",payload:e.target.name})
-   
-      dispatch({type: "ADD_TO_CART",payload: { product,quantity}})
-      setModalOpen(true)
-  
-
+  const handleClick=(e)=>{
+    dispatch({type:"PRODUCT",payload:e.target.value})
+    let id=parseInt(e.target.value)
+    let product=(products.find(product=>product.id === id))
+    dispatch({type: "ADD_TO_CART",payload: { product,quantity}})
+    setModalOpen(true)
   };
 
-  
+    // const { product} = useSelector((state) => state.productReducer);
 
 
 
@@ -37,11 +35,11 @@ const Home = () => {
       {products.map(product=>
       (  
         <div className='product-item' key={product.id}>
-          <img src={`https://electronic-ecommerce.herokuapp.com/${product.image}`} alt={product.name} style={{maxHeight:"14rem",maxWidth:"14rem"}}/>
+          <Link to={`/details/${product.id}`} ><img src={`https://electronic-ecommerce.herokuapp.com/${product.image}`} alt={product.name} style={{maxHeight:"14rem",maxWidth:"14rem"}}/></Link>
           <div><strong>{product.name}</strong></div>
           <div><strong>Rs.</strong>{product.price}</div>
           <div><strong>{product.category[0]}:{" "}</strong><span>{product.category[1]}</span></div>
-          <div><button className='button' name={product.id}  onClick={handleClick}>Add to cart</button></div>
+          <div><button className='button' value={product.id}  onClick={handleClick}>Add to cart</button></div>
         </div>  
       ))}
     </div>

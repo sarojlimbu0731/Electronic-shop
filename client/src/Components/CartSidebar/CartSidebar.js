@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 function CartModel({ modalOpen, setModalOpen }) {
     const dispatch = useDispatch();
+
     const { products,totalqty,totalprice } = useSelector((state) => state.cartReducer);
     console.log(products)
  
@@ -13,7 +14,7 @@ function CartModel({ modalOpen, setModalOpen }) {
       <Drawer
         opened={modalOpen}
         onClose={() => setModalOpen(false)}
-        size="50%"
+        size="80%"
         position="right"
       ><div className="cart-box">
       <div className="container">
@@ -27,29 +28,27 @@ function CartModel({ modalOpen, setModalOpen }) {
                 </div>
                 <div className="cart-col2">
                   <span>{product.name}</span>
-                  <span><strong>Quantity:{" "}</strong>{product.quantity}</span>
-                  <span><strong>Price:{" "}</strong>{product.quantity*product.price}</span>
+                  <span>{product.totalqty}</span>
+                  <span>{product.quantity*product.price}</span>
                 </div>
                 <div className="cart-col3">
-                  
-                    <AiOutlineMinus className="minus" onClick={()=>dispatch({type:"DEC",payload:product.id})}/>
-                    <span className="value">{product.quantity}</span>
-                    <AiOutlinePlus className="plus" onClick={()=>dispatch({type:"INC",payload:product.id})} />
-                  
+                  <div>
+                    <AiOutlineMinus onClick={()=>dispatch({type:"DEC",payload:product.id})}/>
+                    <strong>{product.quantity}</strong>
+                    <AiOutlinePlus onClick={()=>dispatch({type:"INC",payload:product.id})} />
+                  </div>
                 </div>
                 <div>
-                  <AiTwotoneDelete  className="delete" onClick={()=> dispatch({type:"REMOVE",payload:product.id})}/>
+                  <AiTwotoneDelete  onClick={()=> dispatch({type:"REMOVE",payload:product.id})}/>
                 </div>
     
               </div>
-
             ))}
-              <div className="checkout">
-                    <span>Total price:-{totalprice}</span>
-                    <span>Total quantity:-{totalqty}</span>
-                    <button className="button">checkout</button>
-              </div>
-                  
+                        <div className="checkout">
+                    <span>total price:-{totalprice}</span>
+                    <span>total quantity:-{totalqty}</span>
+                    <button>checkout</button>
+                </div>
  
           </>
         ) : (

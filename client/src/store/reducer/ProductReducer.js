@@ -4,10 +4,8 @@ product:{ },
 }
 
 
-const productReducer = (state= initState,action)=>{
-    
 
-    
+const productReducer = (state= initState,action)=>{
 
     switch(action.type){
 
@@ -24,7 +22,7 @@ const productReducer = (state= initState,action)=>{
           
      
         case "PRODUCT":
-            
+             
             return {...state,product:state.products.find(product=>product.id === parseInt(action.payload) )}
 
         default:
