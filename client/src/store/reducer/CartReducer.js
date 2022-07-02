@@ -59,12 +59,15 @@ const cartReducer = (state = initstate, action) => {
       }
     case "REMOVE":
         findpro=state.products.find(product=>product.id === action.payload)
+        findpro.stock=findpro.quantity;
+        findpro.quantity=0;
+   
         const filtered =state.products.filter(product=> product.id !== action.payload)
         return {
             ...state,
             products:filtered,
             totalprice:state.totalprice- findpro.quantity*findpro.price,
-            totalqty:state.totalqty- findpro.quantity
+            totalqty:state.totalqty- findpro.stock
         }
 
     default:

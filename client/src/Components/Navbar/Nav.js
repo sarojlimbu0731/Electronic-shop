@@ -6,7 +6,9 @@ import CartModel from '../CartSidebar/CartSidebar';
 
 const Nav = () => {
     const [modalOpen,setModalOpen]= useState(false)
-  const {totalqty}=useSelector(state=> state.cartReducer)
+
+    const {totalqty}=useSelector(state=> state.cartReducer)
+
 
   const handleClick=()=>{
       setModalOpen(true)
