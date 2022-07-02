@@ -1,7 +1,7 @@
 import { Drawer } from "@mantine/core";
-import { useEffect, useState } from "react";
 import { AiOutlineMinus, AiOutlinePlus, AiTwotoneDelete } from "react-icons/ai";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 function CartModel({ modalOpen, setModalOpen }) {
     const dispatch = useDispatch();
@@ -14,7 +14,7 @@ function CartModel({ modalOpen, setModalOpen }) {
       <Drawer
         opened={modalOpen}
         onClose={() => setModalOpen(false)}
-        size="80%"
+        size="50%"
         position="right"
       ><div className="cart-box">
       <div className="container">
@@ -29,16 +29,19 @@ function CartModel({ modalOpen, setModalOpen }) {
                 <div className="cart-col2">
                   <span>{product.name}</span>
                   <span>{product.totalqty}</span>
-                  <span>{product.quantity*product.price}</span>
+                  <span>Rs.{product.quantity*product.price}</span>
                 </div>
                 <div className="cart-col3">
                   <div>
                     <AiOutlineMinus onClick={()=>dispatch({type:"DEC",payload:product.id})}/>
                     <strong>{product.quantity}</strong>
-                    <AiOutlinePlus onClick={()=>dispatch({type:"INC",payload:product.id})} />
+                    <AiOutlinePlus onClick={()=>{
+                      dispatch({type:"INC",payload:product.id})
+                      // dispatch({type:"UPDATE_PRODUCT",payload:product.id})
+                    }} />
                   </div>
                 </div>
-                <div>
+                <div> 
                   <AiTwotoneDelete  onClick={()=> dispatch({type:"REMOVE",payload:product.id})}/>
                 </div>
     
@@ -47,7 +50,7 @@ function CartModel({ modalOpen, setModalOpen }) {
                         <div className="checkout">
                     <span>total price:-{totalprice}</span>
                     <span>total quantity:-{totalqty}</span>
-                    <button>checkout</button>
+              <Link to="/checkout"><button className="button">checkout</button></Link>      
                 </div>
  
           </>

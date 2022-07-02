@@ -10,8 +10,6 @@ const Nav = () => {
 
   const handleClick=()=>{
       setModalOpen(true)
-  
-
   };
 
   return (  
@@ -22,11 +20,11 @@ const Nav = () => {
                 <div className='nav_left'>
                 <Link to ="/"> <h2>Electronic Shop</h2></Link>
                 </div>
+                <div className='nav-right'>
+                  <span className='shopping-cart'><strong>Cart</strong><AiOutlineShoppingCart  onClick={handleClick} /><strong>{totalqty}</strong></span>  
+                </div>
                 <div>
                     <Link to ="/checkout">Checkout</Link>
-                </div>
-                <div className='nav-right'>
-                  <span className='shopping-cart'><AiOutlineShoppingCart  onClick={handleClick} /><strong>{totalqty}</strong></span>  
                 </div>
             </div>
         </div>

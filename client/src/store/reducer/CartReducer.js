@@ -15,6 +15,7 @@ const cartReducer = (state = initstate, action) => {
       if (check) {
         return state;
       } else {
+        product.stock=product.stock-1
         const tprice = state.totalprice + quantity * product.price;
         const tqty = state.totalqty + quantity;
         product.quantity = quantity;
@@ -28,13 +29,22 @@ const cartReducer = (state = initstate, action) => {
     case "INC":
         findpro= state.products.find(product=>product.id === action.payload);
         index = state.products.findIndex(product=> product.id === action.payload);
+        if(findpro.stock>0){
         findpro.quantity +=1
+        findpro.stock =findpro.stock-1
+        console.log(findpro.stock)
         state.products[index]= findpro;
+
         return {
-            ...state,
-            totalprice:state.totalprice + findpro.price,
-            totalqty:state.totalqty+ 1
-        }
+          ...state,
+          totalprice:state.totalprice + findpro.price,
+          totalqty:state.totalqty+ 1
+      }
+      }
+      else{
+        return state
+      }
+  
     case "DEC":
         findpro=state.products.find(product=>product.id === action.payload)
         index= state.products.findIndex(product=>product.id=== action.payload)
