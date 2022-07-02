@@ -9,6 +9,7 @@ const cartReducer = (state = initstate, action) => {
     let index;
   switch (action.type) {
     case "ADD_TO_CART":
+ 
       const { product, quantity } = action.payload;
 
       const check = state.products.find((item) => item.id === product.id);
