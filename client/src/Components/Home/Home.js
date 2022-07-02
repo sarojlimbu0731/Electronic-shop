@@ -36,6 +36,7 @@ const Home = () => {
           <div><strong>Rs.</strong>{product.price}</div>
           <div><strong>Stock:</strong>{" "}{product.stock}</div>
           <div><strong>{product.category[0]}:{" "}</strong><span>{product.category[1]}</span></div>
+          <div><strong>CreateDate:</strong>{" "}{product.createDate}</div>
         {product.stock ===0 ?<button className='button button-out' disabled>Out of Stock</button>:  <div><button className='button' value={product.id}  onClick={handleClick}>Add to cart</button></div>}
         </div>  
       ))}
