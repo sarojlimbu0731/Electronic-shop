@@ -1,0 +1,38 @@
+.checkout-page {
+  margin-top: 7rem;
+  padding-left: 4rem;
+  display: grid;
+  grid-template-rows: auto;
+}
+
+input {
+  width: 30%;
+  height: 2rem;
+  margin-bottom: 0.5rem;
+  outline: none;
+  padding: 0.2rem;
+  background-color: rgb(193, 206, 206);
+  color: rgb(48, 45, 45);
+  border-radius: 0.5rem;
+  font-size: 14px;
+  padding-left: 1rem;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+}
+
+div > button {
+  width: 10rem !important;
+}
+
+input.input-error,
+select.input-error {
+  border-color: red;
+}
+
+.button-out {
+  background-color: red !important;
+  color: white !important;
+}

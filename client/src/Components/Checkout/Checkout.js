@@ -1,6 +1,7 @@
 import React from "react";
 import { useFormik } from "formik";
 import { basicSchema } from "./Schema";
+import "../../dist/CheckoutStyle.css"
 
 
 const onSubmit =() =>{
