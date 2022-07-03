@@ -90,7 +90,7 @@ function CartModel({ modalOpen, setModalOpen }) {
                     <span>{totalprice}</span>
                   </div>
                   <div>
-                    <span>Toral quantities</span>
+                    <span>Total quantities</span>
                     <span>{totalqty}</span>
                   </div>
                   <Link to="/checkout">
