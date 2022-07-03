@@ -1,9 +1,10 @@
-* {
+ * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
+} 
 
+/*
 body{
   font-family: 'Open Sans', sans-serif;
 }
@@ -159,8 +160,6 @@ display: ;
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* border: 1px solid black; */
-  height: 5rem;
   padding: 1rem;
   margin-bottom: 1rem;
   margin-top: 1rem;
@@ -177,7 +176,6 @@ display: ;
   width: 40%;
   height: 8rem;
   flex-direction: column;
-  /* border: 1px solid black; */
   justify-content: center;
   border-radius: 1rem;
   padding: 1rem;
@@ -219,7 +217,6 @@ input{
   width: 30%;
   height: 2rem;
   margin-bottom: 0.5rem;
-  /* border: none; */
   outline: none;
   padding: 0.2rem;
   background-color: rgb(193, 206, 206);
@@ -247,4 +244,4 @@ select.input-error{
 .button-out{
   background-color: red !important;
   color: white !important;
-}
+}   */
